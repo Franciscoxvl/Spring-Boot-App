@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 public class User implements Serializable {
@@ -18,21 +19,28 @@ public class User implements Serializable {
 	private Long id;
 	
 	@Column
+	@NotBlank
 	private String firstName;
 	
 	@Column
+	@NotBlank
 	private String lastName;
 	
 	@Column
+	@NotBlank
+	@Email
 	private String email;
 	
 	@Column
+	@NotBlank
 	private String username;
 	
 	@Column
+	@NotBlank
 	private String password;
 	
 	@Transient
+	@NotBlank
 	private String confirmPassword;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
